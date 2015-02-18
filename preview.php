@@ -30,7 +30,7 @@ $content = required_param('content', PARAM_CLEANHTML);
 list($context, $course, $cm) = get_context_info_array($contextid);
 $PAGE->set_context($context);
 $PAGE->set_url('/lib/editor/atto/plugins/preview/preview.php');
-$PAGE->set_pagelayout('embedded');
+$PAGE->set_pagelayout('print');
 
 require_login($course, false, $cm);
 require_sesskey();
