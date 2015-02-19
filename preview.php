@@ -27,19 +27,21 @@ require_once('../../../../../config.php');
 $contextid = required_param('contextid', PARAM_INT);
 $content = required_param('content', PARAM_CLEANHTML);
 
-list($context, $course, $cm) = get_context_info_array($contextid);
-$PAGE->set_context($context);
 $PAGE->set_url('/lib/editor/atto/plugins/preview/preview.php');
-$PAGE->set_pagelayout('print');
+
+list($context, $course, $cm) = get_context_info_array($contextid);
 
 require_login($course, false, $cm);
 require_sesskey();
 
+// Reset page layout for inside editor.
+$PAGE->set_pagelayout('print');
+
 print $OUTPUT->header();
 
 // Output filtered content.
-$content = format_text($content);
+$content = format_text($content, FORMAT_MOODLE, array('context' => $contextid));
 $content = preg_replace('/brokenfile.php#/', 'draftfile.php', $content);
-print $OUTPUT->container($content, 'editor-content');
+print $OUTPUT->container($content, 'atto-preview-content');
 
 print $OUTPUT->footer();
