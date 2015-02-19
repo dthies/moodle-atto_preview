@@ -38,6 +38,8 @@ require_sesskey();
 print $OUTPUT->header();
 
 // Output filtered content.
-print $OUTPUT->container(format_text($content), 'editor-content');
+$content = format_text($content);
+$content = preg_replace('/brokenfile.php#/', 'draftfile.php', $content);
+print $OUTPUT->container($content, 'editor-content');
 
 print $OUTPUT->footer();
