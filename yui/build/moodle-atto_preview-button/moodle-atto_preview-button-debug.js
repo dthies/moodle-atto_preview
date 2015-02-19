@@ -97,8 +97,7 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
      *
      * @method _setpreview
      * @param {Node} button The preview button
-     * @param {Boolean} mode Whether the editor display preview
-     * @private
+     * @param {Boolean} mode Whether the editor display preview * @private
      */
     _setpreview: function(button, mode) {
         var host = this.get('host');
@@ -111,12 +110,17 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
                 + '&content=' + encodeURIComponent(host.textarea.get('value'))
                 + '" style="background-color: lightGray"></iframe');
             host._wrapper.appendChild(this.preview);
+
             // Disable all plugins.
             host.disablePlugins();
 
             // And then re-enable this one.
             host.enablePlugins(this.name);
-            host.enablePlugins('fullscreen');
+
+            // Enable fullscreen plugin if present.
+            if (typeof Y.M.atto_fullscreen !== 'undefined') {
+                host.enablePlugins('fullscreen');
+            }
 
         } else {
             this.preview.remove(true);
