@@ -23,3 +23,6 @@
  */
 
 $string['pluginname'] = 'Toggle preview';
+$string['settings'] = 'Preview settings';
+$string['layout'] = 'Page layout';
+$string['layout_desc'] = 'Choose the page layout that works best with the theme and purpose of the site.';

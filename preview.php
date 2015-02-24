@@ -30,12 +30,13 @@ $content = required_param('content', PARAM_CLEANHTML);
 $PAGE->set_url('/lib/editor/atto/plugins/preview/preview.php');
 
 list($context, $course, $cm) = get_context_info_array($contextid);
+$PAGE->set_context($context);
 
 require_login($course, false, $cm);
 require_sesskey();
 
 // Reset page layout for inside editor.
-$PAGE->set_pagelayout('print');
+$PAGE->set_pagelayout(get_config('atto_preview', 'layout'));
 
 print $OUTPUT->header();
 
