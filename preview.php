@@ -25,7 +25,7 @@
 require_once('../../../../../config.php');
 
 $contextid = required_param('contextid', PARAM_INT);
-$content = required_param('content', PARAM_CLEANHTML);
+$content = required_param('content', PARAM_RAW);
 
 $PAGE->set_url('/lib/editor/atto/plugins/preview/preview.php');
 
@@ -41,7 +41,7 @@ $PAGE->set_pagelayout(get_config('atto_preview', 'layout'));
 print $OUTPUT->header();
 
 // Output filtered content.
-$content = format_text($content, FORMAT_MOODLE, array('context' => $contextid));
+$content = format_text($content, FORMAT_HTML, array('context' => $contextid));
 $content = preg_replace('/brokenfile.php#/', 'draftfile.php', $content);
 print $OUTPUT->container($content, 'atto-preview-content');
 
