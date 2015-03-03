@@ -42,7 +42,11 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
             callback: this._toggle
         });
         button.set('title', M.util.get_string('pluginname', PLUGINNAME));
+        // If there is an event that may resize the editor, adjust the size of the preview.
         Y.after('windowresize', Y.bind(this._fitToScreen, this));
+        this.editor.on(['gesturemove', 'gesturemoveend'], Y.bind(this._fitToScreen, this), {
+            standAlone: true
+        }, this);
         this.toolbar.on('click', Y.bind(this._fitToScreen, this));
 
     },
