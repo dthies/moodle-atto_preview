@@ -110,7 +110,13 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
                 + this.get('sesskey')
                 + '&contextid=' + this.get('contextid')
                 + '&content=' + encodeURIComponent(host.textarea.get('value'))
-                + '" style="background-color: lightGray"></iframe');
+                + '"></iframe');
+            this.preview.setStyles({
+                backgroundColor: Y.one('body').getComputedStyle('backgroundColor'),
+                backgroundImage: 'url(' + M.util.image_url('i/loading', 'core') + ')',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center center'
+            });
             host._wrapper.appendChild(this.preview);
 
             // Disable all plugins.
