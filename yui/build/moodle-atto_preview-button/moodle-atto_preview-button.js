@@ -112,7 +112,7 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
                 + this.get('sesskey')
                 + '&contextid=' + this.get('contextid')
                 + '&content=' + encodeURIComponent(host.textarea.get('value'))
-                + '"></iframe');
+                + '" srcdoc=""></iframe');
             this.preview.setStyles({
                 backgroundColor: Y.one('body').getComputedStyle('backgroundColor'),
                 backgroundImage: 'url(' + M.util.image_url('i/loading', 'core') + ')',
@@ -120,6 +120,23 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
                 backgroundPosition: 'center center'
             });
             host._wrapper.appendChild(this.preview);
+
+            // Now we try this using the io module.
+            var params = {
+                    sesskey: this.get('sesskey'),
+                    contextid: this.get('contextid'),
+                    content: host.textarea.get('value')
+                };
+
+            // Fetch content and load asynchronously.
+            Y.io(this.get('previewurl'), {
+                    context: this,
+                    data: params,
+                    on: {
+                            complete: this._loadContent
+                        },
+                    method: 'POST'
+                });
 
             // Disable all plugins.
             host.disablePlugins();
@@ -141,6 +158,20 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
         button.setData(STATE, !!mode);
         this._fitToScreen();
 
+    },
+
+    /**
+     * Load filtered content into iframe
+     *
+     * @param {String} id
+     * @param {EventFacade} e
+     * @method _loadPreview
+     * @private
+     */
+    _loadContent: function(id, e) {
+        var content = e.responseText;
+
+        this.preview.setAttribute('srcdoc', content);
     }
 }, {
     ATTRS: {
