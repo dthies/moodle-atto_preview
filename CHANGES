@@ -1,2 +1,2 @@
-2015010305 Add abiltity to request filtered document using post method. This allows the preview to work on texts
+2015090100 Add abiltity to request filtered document using post method. This allows the preview to work on texts
 that are larger than the server's maximum url size setting.
