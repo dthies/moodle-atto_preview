@@ -40,9 +40,15 @@ $PAGE->set_pagelayout(get_config('atto_preview', 'layout'));
 
 print $OUTPUT->header();
 
+// Print dialog link a la book print tool.
+$printtext = get_string('printcontent', 'atto_preview');
+$printicon = $OUTPUT->pix_icon('book', $printtext, 'booktool_print', array('class' => 'icon'));
+$printlinkatt = array('onclick' => 'window.print();return false;', 'class' => 'hidden-print');
+$printbutton =  html_writer::link('#', $printicon.$printtext, $printlinkatt);
+
 // Output filtered content.
 $content = format_text($content, FORMAT_HTML, array('context' => $contextid));
 $content = preg_replace('/brokenfile.php#/', 'draftfile.php', $content);
-print $OUTPUT->container($content, 'atto-preview-content');
+print $printbutton . $OUTPUT->container($content, 'atto-preview-content');
 
 print $OUTPUT->footer();

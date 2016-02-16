@@ -18,14 +18,14 @@
  * Atto text editor preview version file.
  *
  * @package    atto_preview
- * @copyright  2015 Daniel Thies <dthies@ccal.edu>
+ * @copyright  2015 onward Daniel Thies <dthies@ccal.edu>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2015010305;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version   = 2016021500;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2014051200;        // Requires this Moodle version.
 $plugin->component = 'atto_preview';  // Full name of the plugin (used for diagnostics).
 $plugin->maturity = MATURITY_STABLE; // Maturity level.
-$plugin->release = 2015090100;
+$plugin->release = 2016021500;
