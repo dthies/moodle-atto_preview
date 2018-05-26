@@ -15,16 +15,34 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_preview', language 'en'.
+ * Privacy Subsystem implementation for atto_preview.
  *
  * @package    atto_preview
- * @copyright  2015 Daniel Thies <dthies@ccal.edu>
+ * @copyright  2018 Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Toggle preview';
-$string['layout_desc'] = 'Choose the page layout that works best with the theme and purpose of the site.';
-$string['layout'] = 'Page layout';
-$string['printcontent'] = 'Print contents';
-$string['privacy:metadata'] = 'The Toggle preview plugin does not store any personal data.';
-$string['settings'] = 'Preview settings';
+namespace atto_preview\privacy;
+
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Privacy Subsystem for atto_preview implementing null_provider.
+ *
+ * @copyright   2018 Daniel Thies <dethies@gmail.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    use \core_privacy\local\legacy_polyfill;
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function _get_reason() {
+        return 'privacy:metadata';
+    }
+}
