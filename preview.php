@@ -44,7 +44,7 @@ print $OUTPUT->header();
 $printtext = get_string('printcontent', 'atto_preview');
 $printicon = $OUTPUT->pix_icon('book', $printtext, 'booktool_print', array('class' => 'icon'));
 $printlinkatt = array('onclick' => 'window.print();return false;', 'class' => 'hidden-print');
-$printbutton =  html_writer::link('#', $printicon.$printtext, $printlinkatt);
+$printbutton = html_writer::link('#', $printicon.$printtext, $printlinkatt);
 
 // Output filtered content.
 $content = format_text($content, FORMAT_HTML, array('context' => $contextid));
