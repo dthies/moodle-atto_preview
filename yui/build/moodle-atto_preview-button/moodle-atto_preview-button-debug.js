@@ -17,7 +17,7 @@ YUI.add('moodle-atto_preview-button', function (Y, NAME) {
 
 /*
  * @package    atto_preview
- * @copyright  2015 Daniel Thies <dthies@ccal.edu>
+ * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -112,7 +112,7 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
                 + this.get('sesskey')
                 + '&contextid=' + this.get('contextid')
                 + '&content=' + encodeURIComponent(host.textarea.get('value'))
-                + '" srcdoc=""></iframe');
+                + '" srcdoc="" class="atto-preview"></iframe');
             this.preview.setStyles({
                 backgroundColor: Y.one('body').getComputedStyle('backgroundColor'),
                 backgroundImage: 'url(' + M.util.image_url('i/loading', 'core') + ')',
