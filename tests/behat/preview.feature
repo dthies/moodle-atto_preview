@@ -4,12 +4,13 @@ Feature: Atto preview editor button
   I need to use an editing tool to expand editor.
 
   Background:
-    Given I log in as "admin"
+    Given the "emoticon" filter is "on"
+    And I log in as "admin"
     And I navigate to "Plugins > Text editors > Atto HTML edito > Atto toolbar settings" in site administration
     And I set the field "Toolbar config" to "other = html, preview, bold, charmap"
     And I press "Save changes"
     And I open my profile in edit mode
-    And I set the field "Description" to "Cyclops"
+    And I set the field "Description" to "Wink ;-) emoticon"
 
 @javascript @atto_preview_active
   Scenario: Click preview button and check activation
@@ -21,5 +22,6 @@ Feature: Atto preview editor button
   Scenario: Click preview look for iframe contents
     When I click on "Toggle preview" "button"
     And I wait "30" seconds
-    And I switch to "atto-preview" class iframe
-    Then I should see "Cyclops"
+    And I switch to "atto-preview" iframe
+    Then I should see "Wink"
+    And "img.icon" "css_element" should exist

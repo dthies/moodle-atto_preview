@@ -110,7 +110,7 @@ Y.namespace('M.atto_preview').Button = Y.Base.create('button', Y.M.editor_atto.E
                 + this.get('sesskey')
                 + '&contextid=' + this.get('contextid')
                 + '&content=' + encodeURIComponent(host.textarea.get('value'))
-                + '" srcdoc="" class="atto-preview"></iframe');
+                + '" srcdoc="" id="atto-preview"></iframe');
             this.preview.setStyles({
                 backgroundColor: Y.one('body').getComputedStyle('backgroundColor'),
                 backgroundImage: 'url(' + M.util.image_url('i/loading', 'core') + ')',
