@@ -12,13 +12,13 @@ Feature: Atto preview editor button
     And I open my profile in edit mode
     And I set the field "Description" to "Wink ;-) emoticon"
 
-@javascript @atto_preview_active
+  @javascript @atto_preview_active
   Scenario: Click preview button and check activation
     When I click on "Toggle preview" "button"
     Then "button.atto_preview_button.highlight" "css_element" should exist
-    And "button.atto_bold_button_bold[disabled=\"disabled\"]" "css_element" should exist
+    And "button.atto_bold_button_bold[disabled=\"disabled\"], button.atto_bold_button[disabled=\"disabled\"]" "css_element" should exist
 
-@javascript @_switch_iframe @atto_preview_content
+  @javascript @_switch_iframe @atto_preview_content
   Scenario: Click preview look for iframe contents
     When I click on "Toggle preview" "button"
     And I wait "30" seconds
