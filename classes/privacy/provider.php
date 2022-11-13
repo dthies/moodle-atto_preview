@@ -24,8 +24,6 @@
 
 namespace atto_preview\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem for atto_preview implementing null_provider.
  *
