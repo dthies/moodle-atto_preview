@@ -22,9 +22,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Toggle preview';
-$string['layout_desc'] = 'Choose the page layout that works best with the theme and purpose of the site.';
 $string['layout'] = 'Page layout';
+$string['layout_desc'] = 'Choose the page layout that works best with the theme and purpose of the site.';
+$string['pluginname'] = 'Toggle preview';
 $string['printcontent'] = 'Print contents';
 $string['privacy:metadata'] = 'The Toggle preview plugin does not store any personal data.';
 $string['settings'] = 'Preview settings';

@@ -31,9 +31,9 @@ if ($ADMIN->fulltree) {
     // Create a list of page layouts to be available.
     $name = new lang_string('layout', 'atto_preview');
     $desc = new lang_string('layout_desc', 'atto_preview');
-    $options = array ('embedded' => 'embedded',
+    $options = ['embedded' => 'embedded',
                       'popup' => 'popup',
-                      'print' => 'print');
+                      'print' => 'print'];
     $default = 'print';
 
     $setting = new admin_setting_configselect('atto_preview/layout',
