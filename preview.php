@@ -29,7 +29,7 @@ $content = required_param('content', PARAM_RAW);
 
 $PAGE->set_url('/lib/editor/atto/plugins/preview/preview.php');
 
-list($context, $course, $cm) = get_context_info_array($contextid);
+[$context, $course, $cm] = get_context_info_array($contextid);
 $PAGE->set_context($context);
 
 require_login($course, false, $cm);
@@ -44,7 +44,7 @@ print $OUTPUT->header();
 $printtext = get_string('printcontent', 'atto_preview');
 $printicon = $OUTPUT->pix_icon('book', $printtext, 'booktool_print', ['class' => 'icon']);
 $printlinkatt = ['onclick' => 'window.print();return false;', 'class' => 'hidden-print'];
-$printbutton = html_writer::link('#', $printicon.$printtext, $printlinkatt);
+$printbutton = html_writer::link('#', $printicon . $printtext, $printlinkatt);
 
 // Output filtered content.
 $content = format_text($content, FORMAT_HTML, ['context' => $contextid]);

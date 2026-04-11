@@ -38,7 +38,6 @@ function atto_preview_params_for_js($elementid, $options, $fpoptions) {
     return ['contextid' => $context->id,
                  'previewurl' => $CFG->wwwroot . '/lib/editor/atto/plugins/preview/preview.php',
                  'sesskey' => sesskey()];
-
 }
 
 /**
@@ -49,4 +48,3 @@ function atto_preview_strings_for_js() {
 
     $PAGE->requires->strings_for_js(['pluginname'], 'atto_preview');
 }
-

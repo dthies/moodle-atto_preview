@@ -36,10 +36,12 @@ if ($ADMIN->fulltree) {
                       'print' => 'print'];
     $default = 'print';
 
-    $setting = new admin_setting_configselect('atto_preview/layout',
-                                              $name,
-                                              $desc,
-                                              $default,
-                                              $options);
+    $setting = new admin_setting_configselect(
+        'atto_preview/layout',
+        $name,
+        $desc,
+        $default,
+        $options
+    );
     $settings->add($setting);
 }
