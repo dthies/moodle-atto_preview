@@ -18,7 +18,7 @@
  * Atto text editor preview version file.
  *
  * @package    atto_preview
- * @copyright  2015 onward Daniel Thies <dthies@ccal.edu>
+ * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -29,4 +29,4 @@ $plugin->requires  = 2018051700;        // Requires this Moodle version.
 $plugin->component = 'atto_preview';  // Full name of the plugin (used for diagnostics).
 $plugin->maturity = MATURITY_STABLE; // Maturity level.
 $plugin->release = 1.0;
-$plugin->supported = [35, 502];
+$plugin->supported = [35, 503];
